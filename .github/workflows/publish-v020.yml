@@ -48,6 +48,9 @@ jobs:
           git fetch origin main
           git checkout --detach origin/main
           cp -a /tmp/shipkit-v020-overlay/. .
+          # GITHUB_TOKEN cannot modify workflow files without workflows permission.
+          # Publish source/docs first; ci.yml is updated directly as the next clean commit.
+          git restore --source=origin/main -- .github/workflows/ci.yml
           find . -type d -name __pycache__ -prune -exec rm -rf {} +
           find . -type f -name '*.pyc' -delete
 
