@@ -2,6 +2,8 @@
 
 **Software Delivery Orchestrator for AI Coding Agents**
 
+> **Software delivery orchestrator for AI coding agents — structured planning, persistent state, testing, security, and release quality gates.**
+
 ShipKit v0.2.0 gives Codex and Claude Code a structured software-delivery lifecycle with persistent state and repository-based quality gates.
 
 > ShipKit does not replace the coding agent. It supplies process, state, contracts and verification.
