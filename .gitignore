@@ -10,8 +10,9 @@ htmlcov/
 .venv/
 venv/
 
-# Build artifacts (the v0.1 wheel in dist/ is intentionally versioned)
+# Build artifacts
 build/
+dist/
 
 # ShipKit project-local state
 .shipkit/
