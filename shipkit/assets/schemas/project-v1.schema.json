@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "shipkit:project-v1",
+  "type": "object",
+  "required": ["$schema","schema_version","shipkit_version","name","type","capabilities"],
+  "properties": {"$schema":{"const":"shipkit:project-v1"},"schema_version":{"const":1}}
+}

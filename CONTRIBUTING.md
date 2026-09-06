@@ -1,8 +1,3 @@
 # Contributing
 
-Keep ShipKit small, deterministic where possible, and agent-agnostic where practical.
-
-- Add tests for CLI/state/check changes.
-- Do not add a runtime cloud dependency without a strong reason.
-- Skills should use progressive disclosure: short activation metadata, focused workflows, references only when needed.
-- New quality gates must be mechanically testable or clearly labeled heuristic.
+Use kebab-case for skill directories and snake_case for Python modules. New skills require `SKILL.md` and `manifest.json` using `shipkit-skill-v1`. Changes to state/project formats require schema-version review and migration coverage. Run `python -m unittest discover -s tests -v` before opening a PR.

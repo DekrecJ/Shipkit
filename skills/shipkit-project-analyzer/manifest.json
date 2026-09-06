@@ -1,0 +1,1 @@
+{"protocol":"shipkit-skill-v1","name":"shipkit-project-analyzer","version":"1.0.0","reads":[".shipkit/project.json",".shipkit/state.json"],"state_mutations":"documented-only","output":{"status":"success|blocked|error","generated_files":[],"next_skill":"optional"}}

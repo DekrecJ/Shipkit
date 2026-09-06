@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "shipkit:state-v1",
+  "type": "object",
+  "required": ["$schema","schema_version","shipkit_version","project","current_phase","phases"],
+  "properties": {"$schema":{"const":"shipkit:state-v1"},"schema_version":{"const":1},"current_phase":{"enum":["discovery","requirements","architecture","implementation","testing","security","release"]}}
+}

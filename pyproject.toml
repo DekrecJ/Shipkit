@@ -1,35 +1,22 @@
 [build-system]
-requires = ["setuptools>=69", "wheel"]
-build-backend = "setuptools.build_meta"
+requires=["setuptools>=69","wheel"]
+build-backend="setuptools.build_meta"
 
 [project]
-name = "shipkit-ai"
-version = "0.1.0"
-description = "Software delivery orchestrator for AI coding agents such as Codex and Claude Code."
-readme = "README.md"
-requires-python = ">=3.10"
-license = {text = "MIT"}
-authors = [{name = "ShipKit Contributors"}]
-keywords = ["codex", "agent-skills", "ai-coding", "software-delivery", "developer-tools"]
-classifiers = [
-  "Development Status :: 3 - Alpha",
-  "Environment :: Console",
-  "License :: OSI Approved :: MIT License",
-  "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3.10",
-  "Programming Language :: Python :: 3.11",
-  "Programming Language :: Python :: 3.12",
-]
-dependencies = []
+name="shipkit-ai"
+version="0.2.0"
+description="Software delivery orchestrator for AI coding agents such as Codex and Claude Code."
+readme="README.md"
+requires-python=">=3.10"
+license={text="MIT"}
+dependencies=[]
 
 [project.scripts]
-shipkit = "shipkit.cli:main"
+shipkit="shipkit.cli:main"
 
 [tool.setuptools]
-include-package-data = true
-
+include-package-data=true
 [tool.setuptools.packages.find]
-include = ["shipkit*"]
-
+include=["shipkit*"]
 [tool.setuptools.package-data]
-shipkit = ["assets/**/*"]
+shipkit=["assets/**/*"]

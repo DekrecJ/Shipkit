@@ -1,0 +1,1 @@
+Build a SaaS for automotive workshops with admin, mechanic and customer roles.

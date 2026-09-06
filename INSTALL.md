@@ -1,42 +1,11 @@
-# ShipKit installation
+# Install ShipKit v0.2.0
 
-## Windows
-
-```powershell
-Set-ExecutionPolicy -Scope Process Bypass
-.\install-codex.ps1
-```
-
-The script installs the local Python package, installs ShipKit Codex skills/instructions, and runs `shipkit doctor`.
-
-Restart Codex after installation so a new session discovers the skills.
-
-## Linux/macOS
+Requirements: Python 3.10+, Git, and Codex for the primary workflow.
 
 ```bash
-chmod +x install-codex.sh
-./install-codex.sh
+python -m pip install .
+shipkit install codex
+shipkit doctor
 ```
 
-## Verify inside Codex
-
-Start a new task and type:
-
-```text
-Use $shipkit-router and report the current ShipKit status.
-```
-
-For an automatic activation test, start in an empty project directory and say:
-
-```text
-Create a SaaS where mechanics update repairs and customers track their vehicles.
-```
-
-A correct ShipKit flow begins with `◆ ShipKit active` (or `resumed` when `.shipkit/` already exists).
-
-## Remove
-
-```bash
-shipkit uninstall codex
-python -m pip uninstall shipkit-ai
-```
+The Codex installer copies `shipkit-*` skills to `~/.agents/skills`, writes a managed ShipKit block to `~/.codex/AGENTS.md`, and stores reusable blueprints/capabilities/specs/schemas in `~/.shipkit/library`.

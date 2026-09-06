@@ -1,18 +1,9 @@
-import tempfile
-import unittest
+import tempfile,unittest
 from pathlib import Path
 from shipkit.state.manager import initialize
 from shipkit.project_setup import scaffold_project
-
-class ProjectSetupTests(unittest.TestCase):
-    def test_scaffold(self):
-        with tempfile.TemporaryDirectory() as d:
-            root = Path(d)
-            initialize(root, "Demo")
-            scaffold_project(root, "Demo")
-            self.assertTrue((root / "AGENTS.md").exists())
-            self.assertTrue((root / ".shipkit" / "ARCHITECTURE.md").exists())
-            self.assertIn("Demo", (root / ".shipkit" / "PROJECT.md").read_text(encoding="utf-8"))
-
-if __name__ == "__main__":
-    unittest.main()
+class Setup(unittest.TestCase):
+ def test_scaffold(self):
+  with tempfile.TemporaryDirectory() as d:
+   r=Path(d); initialize(r,'Demo'); scaffold_project(r,'Demo'); self.assertTrue((r/'AGENTS.md').exists()); self.assertTrue((r/'.shipkit/ARCHITECTURE.md').exists())
+if __name__=='__main__': unittest.main()

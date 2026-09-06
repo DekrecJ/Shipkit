@@ -1,0 +1,40 @@
+{
+  "$schema": "shipkit:scoring-v1",
+  "version": "1.0.0",
+  "weights": {
+    "structure": 10,
+    "build": 20,
+    "lint": 10,
+    "tests": 25,
+    "security": 25,
+    "documentation": 10,
+    "state": 10
+  },
+  "thresholds": {
+    "ready": 90,
+    "review": 75
+  },
+  "profiles": {
+    "web_app": {
+      "weights": {
+        "tests": 20,
+        "security": 20
+      }
+    },
+    "api": {
+      "weights": {
+        "tests": 30,
+        "security": 25
+      }
+    },
+    "saas": {
+      "weights": {
+        "tests": 30,
+        "security": 30
+      },
+      "thresholds": {
+        "ready": 92
+      }
+    }
+  }
+}
