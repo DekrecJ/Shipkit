@@ -1,0 +1,13 @@
+{
+  "name": "ai",
+  "requires": [
+    "model/tool boundary",
+    "fallback behavior",
+    "evaluation plan"
+  ],
+  "tests": [
+    "grounded/expected case",
+    "insufficient evidence/fallback",
+    "tool boundary when applicable"
+  ]
+}

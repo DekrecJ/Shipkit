@@ -1,0 +1,10 @@
+{
+  "name": "rbac",
+  "requires": [
+    "authorization policy"
+  ],
+  "tests": [
+    "allowed role",
+    "denied role"
+  ]
+}

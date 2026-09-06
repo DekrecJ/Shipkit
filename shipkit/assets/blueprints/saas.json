@@ -1,0 +1,20 @@
+{
+  "type": "saas",
+  "required": [
+    "frontend",
+    "database",
+    "auth"
+  ],
+  "recommended": [
+    "authorization",
+    "audit_logging"
+  ],
+  "quality": [
+    "build",
+    "lint",
+    "unit",
+    "integration",
+    "e2e"
+  ],
+  "principle": "Multi-tenant SaaS requires tenant isolation in data model and tests."
+}

@@ -1,0 +1,14 @@
+{
+  "name": "payments",
+  "requires": [
+    "server-side credentials",
+    "signature verification",
+    "idempotency"
+  ],
+  "tests": [
+    "success",
+    "failure",
+    "invalid signature",
+    "duplicate webhook"
+  ]
+}

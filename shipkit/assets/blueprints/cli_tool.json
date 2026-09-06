@@ -1,0 +1,16 @@
+{
+  "type": "cli_tool",
+  "required": [
+    "cli_entrypoint",
+    "input_validation"
+  ],
+  "optional": [
+    "config",
+    "network"
+  ],
+  "quality": [
+    "unit",
+    "cli_integration"
+  ],
+  "principle": "Prefer zero/minimal dependencies and deterministic behavior."
+}

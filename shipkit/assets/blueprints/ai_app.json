@@ -1,0 +1,19 @@
+{
+  "type": "ai_app",
+  "required": [
+    "ai_boundary",
+    "fallback_behavior",
+    "evaluation"
+  ],
+  "optional": [
+    "rag",
+    "tools",
+    "vector_store"
+  ],
+  "quality": [
+    "functional_tests",
+    "ai_evaluation",
+    "failure_fallback"
+  ],
+  "principle": "Use deterministic code for hard policy decisions; use models for interpretation/generation where appropriate."
+}

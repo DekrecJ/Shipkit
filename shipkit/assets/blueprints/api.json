@@ -1,0 +1,17 @@
+{
+  "type": "api",
+  "required": [
+    "backend",
+    "input_validation"
+  ],
+  "optional": [
+    "database",
+    "auth"
+  ],
+  "quality": [
+    "unit",
+    "integration",
+    "contract_or_http_tests"
+  ],
+  "principle": "Keep the API small, explicit, observable, and version only when necessary."
+}

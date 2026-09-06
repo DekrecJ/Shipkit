@@ -1,0 +1,17 @@
+{
+  "type": "web_app",
+  "required": [
+    "frontend"
+  ],
+  "optional": [
+    "backend",
+    "database",
+    "auth"
+  ],
+  "quality": [
+    "build",
+    "lint",
+    "targeted_tests"
+  ],
+  "principle": "Prefer static/local state unless requirements justify a server or database."
+}

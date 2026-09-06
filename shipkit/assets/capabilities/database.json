@@ -1,0 +1,11 @@
+{
+  "name": "database",
+  "requires": [
+    "schema",
+    "migration strategy",
+    "ownership"
+  ],
+  "tests": [
+    "persistence/integration"
+  ]
+}

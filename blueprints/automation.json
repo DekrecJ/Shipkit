@@ -1,0 +1,17 @@
+{
+  "type": "automation",
+  "required": [
+    "trigger",
+    "validation",
+    "failure_handling"
+  ],
+  "optional": [
+    "database",
+    "notifications"
+  ],
+  "quality": [
+    "fixture_tests",
+    "failure_path_test"
+  ],
+  "principle": "Model retries, idempotency and credential boundaries when external systems are involved."
+}

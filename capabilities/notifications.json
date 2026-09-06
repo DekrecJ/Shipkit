@@ -1,0 +1,9 @@
+{
+  "name": "notifications",
+  "requires": [
+    "failure/retry behavior"
+  ],
+  "tests": [
+    "delivery failure path"
+  ]
+}

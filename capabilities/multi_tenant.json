@@ -1,0 +1,9 @@
+{
+  "name": "multi_tenant",
+  "requires": [
+    "tenant ownership boundary"
+  ],
+  "tests": [
+    "cross-tenant isolation"
+  ]
+}

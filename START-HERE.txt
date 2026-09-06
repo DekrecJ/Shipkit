@@ -1,0 +1,62 @@
+SHIPKIT v0.1.0 — INSTALACION EN CODEX (WINDOWS)
+=================================================
+
+REQUISITO:
+- Python 3.10 o superior.
+- Codex instalado.
+
+INSTALACION:
+1. Extrae completamente el ZIP.
+2. Abre PowerShell dentro de la carpeta extraida "shipkit".
+3. Ejecuta:
+
+   Set-ExecutionPolicy -Scope Process Bypass
+   .\install-codex.ps1
+
+4. Cierra y vuelve a abrir Codex.
+
+PRUEBA AUTOMATICA:
+Abre una carpeta vacia en Codex y escribe, sin mencionar ShipKit:
+
+   Quiero crear un SaaS para talleres mecanicos donde los tecnicos
+   actualicen las reparaciones y los clientes puedan ver el estado
+   de su vehiculo.
+
+Si la activacion automatica ocurre, Codex deberia mostrar:
+
+   ◆ ShipKit active
+
+y crear una carpeta .shipkit/ dentro del proyecto.
+
+PRUEBA MANUAL / FORZADA:
+
+   $shipkit-router Quiero crear un SaaS para talleres mecanicos...
+
+VERIFICACION DESDE TERMINAL:
+
+   py -3 -m shipkit doctor
+   py -3 -m shipkit --version
+
+COMANDOS PRINCIPALES:
+
+   shipkit init
+   shipkit status
+   shipkit task TASK-001 --status in_progress
+   shipkit task TASK-001 --status completed
+   shipkit check
+
+Si el comando "shipkit" no aparece en PATH, usa:
+
+   py -3 -m shipkit <comando>
+
+Ejemplo:
+
+   py -3 -m shipkit check
+
+DESINSTALAR INTEGRACION CODEX:
+
+   py -3 -m shipkit uninstall codex
+
+Luego, si quieres quitar tambien el paquete Python:
+
+   py -3 -m pip uninstall shipkit-ai

@@ -1,0 +1,18 @@
+{
+  "type": "mobile_app",
+  "required": [
+    "mobile_frontend"
+  ],
+  "optional": [
+    "offline_storage",
+    "backend",
+    "auth",
+    "sync"
+  ],
+  "quality": [
+    "static_analysis",
+    "unit",
+    "critical_flow_test"
+  ],
+  "principle": "Do not add a backend when local-first storage satisfies the product."
+}

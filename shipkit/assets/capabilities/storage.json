@@ -1,0 +1,11 @@
+{
+  "name": "storage",
+  "requires": [
+    "file validation",
+    "access policy"
+  ],
+  "tests": [
+    "unauthorized file access",
+    "invalid upload"
+  ]
+}

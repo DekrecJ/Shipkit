@@ -1,0 +1,10 @@
+{
+  "name": "realtime",
+  "requires": [
+    "subscription authorization",
+    "reconnect behavior"
+  ],
+  "tests": [
+    "authorized subscription"
+  ]
+}
