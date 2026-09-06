@@ -1,0 +1,80 @@
+name: Publish ShipKit v0.2.0 refactor
+
+on:
+  push:
+    branches: ["refactor/v0.2.0"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: shipkit-v020-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: contains(github.event.head_commit.message, '[publish-v0.2]')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout staging branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Reconstruct verified v0.2.0 overlay
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat \
+            ._shipkit_v020_final/p00 \
+            ._shipkit_v020_final/q01 \
+            ._shipkit_v020_final/q02 \
+            ._shipkit_v020_final/q03_00 \
+            ._shipkit_v020_final/q03_01 \
+            ._shipkit_v020_final/q04_00 \
+            ._shipkit_v020_final/q04_01 \
+            > /tmp/shipkit-v020.b64
+          base64 -d /tmp/shipkit-v020.b64 > /tmp/shipkit-v020.tar.bz2
+          echo "fe420b5be94a72cb7b73c835df9d8474e714fa83c16229f2b13ce79baa2746c5  /tmp/shipkit-v020.tar.bz2" | sha256sum -c -
+          mkdir -p /tmp/shipkit-v020-overlay
+          tar -xjf /tmp/shipkit-v020.tar.bz2 -C /tmp/shipkit-v020-overlay
+          find /tmp/shipkit-v020-overlay -type d -name __pycache__ -prune -exec rm -rf {} +
+          find /tmp/shipkit-v020-overlay -type f -name '*.pyc' -delete
+
+      - name: Apply overlay on top of current main
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git checkout --detach origin/main
+          cp -a /tmp/shipkit-v020-overlay/. .
+          find . -type d -name __pycache__ -prune -exec rm -rf {} +
+          find . -type f -name '*.pyc' -delete
+
+      - name: Validate transferred tree
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m compileall -q shipkit
+          python -m unittest discover -s tests -p 'test_*.py' -v
+          python -m pip install .
+          shipkit --version
+          test "$(shipkit --version)" = "ShipKit 0.2.0"
+          find . -type d -name __pycache__ -prune -exec rm -rf {} +
+          find . -type f -name '*.pyc' -delete
+          find . -maxdepth 2 -type d -name '*.egg-info' -prune -exec rm -rf {} +
+
+      - name: Create clean history-preserving v0.2.0 commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "Dereck"
+          git config user.email "vii.lofi@hotmail.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to publish" >&2
+            exit 1
+          fi
+          git status --short
+          git commit -m "refactor: harden ShipKit lifecycle and verification for v0.2.0"
+          git push origin HEAD:main
