@@ -38,37 +38,92 @@ At each stage ShipKit can persist state, validate the current phase and prevent 
 - **Codex and Claude Code installers** from the same CLI.
 - **CI verification** across Python 3.10, 3.11 and 3.12.
 
-## Quick start
+# Install ShipKit
 
-### 1. Install
+## Requirements
+
+Before installing ShipKit, make sure you have:
+
+- **Python 3.10 or newer**
+- **Git**
+- **Codex** for the primary workflow
+
+You do **not** need an extra API key or a separate LLM for ShipKit. It uses the coding agent you already have.
+
+## Windows — recommended
+
+Open PowerShell and run:
+
+```powershell
+git clone https://github.com/DekrecJ/Shipkit.git
+cd Shipkit
+.\install-codex.ps1
+```
+
+If Windows blocks PowerShell scripts, run this once in the same terminal and try again:
+
+```powershell
+Set-ExecutionPolicy -Scope Process Bypass
+.\install-codex.ps1
+```
+
+The installer will:
+
+```text
+Install the ShipKit Python package
+        ↓
+Install ShipKit skills for Codex
+        ↓
+Configure persistent Codex instructions
+        ↓
+Run ShipKit Doctor
+        ↓
+Ready
+```
+
+When it finishes, **restart Codex**.
+
+## Linux / macOS — recommended
 
 ```bash
 git clone https://github.com/DekrecJ/Shipkit.git
 cd Shipkit
-python -m pip install .
+chmod +x install-codex.sh
+./install-codex.sh
 ```
 
-### 2. Install ShipKit for your coding agent
+When it finishes, **restart Codex**.
+
+## Verify the installation
 
 ```bash
-shipkit install codex
+shipkit --version
+shipkit doctor
 ```
 
-or:
+Expected version:
 
-```bash
-shipkit install claude
+```text
+ShipKit 0.2.0
 ```
 
-### 3. Initialize a project
+## Start using ShipKit
+
+Open the folder of the project you want to build with Codex and describe it normally, for example:
+
+```text
+Build a SaaS for managing an automotive workshop with admin,
+mechanic and customer roles.
+```
+
+For explicit CLI initialization:
 
 ```bash
-cd /path/to/your/project
-shipkit init --type web --level intermediate
+shipkit init --type web_app --level intermediate
 shipkit status
 ```
 
-### 4. Work through the lifecycle
+Then work through the lifecycle:
 
 ```bash
 shipkit validate-phase
@@ -85,6 +140,26 @@ shipkit migrate
 ```
 
 Run `shipkit --help` for the complete CLI.
+
+## Manual / advanced installation
+
+If you prefer not to use the installer scripts:
+
+```bash
+git clone https://github.com/DekrecJ/Shipkit.git
+cd Shipkit
+python -m pip install .
+shipkit install codex
+shipkit doctor
+```
+
+For Claude Code:
+
+```bash
+shipkit install claude
+```
+
+See [INSTALL.md](./INSTALL.md) for troubleshooting and installation details.
 
 ## How it fits around an AI coding agent
 
