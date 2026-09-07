@@ -1,5 +1,47 @@
 ShipKit v0.2.0
 
-Install: python -m pip install .
-Then: shipkit install codex
-Restart Codex and describe a software project.
+REQUIREMENTS
+- Python 3.10+
+- Git
+- Codex
+
+WINDOWS
+1. Open PowerShell.
+2. Run:
+
+   git clone https://github.com/DekrecJ/Shipkit.git
+   cd Shipkit
+   .\install-codex.ps1
+
+3. Restart Codex.
+
+If PowerShell blocks the script:
+
+   Set-ExecutionPolicy -Scope Process Bypass
+   .\install-codex.ps1
+
+LINUX / macOS
+
+   git clone https://github.com/DekrecJ/Shipkit.git
+   cd Shipkit
+   chmod +x install-codex.sh
+   ./install-codex.sh
+
+Then restart Codex.
+
+VERIFY
+
+   shipkit --version
+   shipkit doctor
+
+Expected version:
+
+   ShipKit 0.2.0
+
+FIRST PROJECT
+
+   cd /path/to/your/project
+   shipkit init --type web_app --level intermediate
+   shipkit status
+
+Then open the project with Codex and describe what you want to build.
